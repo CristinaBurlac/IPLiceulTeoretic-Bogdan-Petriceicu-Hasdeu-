@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <title>IPLT-B.P.Hasdeu</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        .a-IRR {
+            border: 1px solid;
+            position: relative
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            line-height: 16px
+        }
+
+        .a-Button,
+        .u-Button {
+            -webkit-appearance: none;
+            background: 0 0;
+            border: 1px solid;
+            color: inherit;
+            cursor: pointer;
+            display: inline-block;
+            font: inherit;
+            line-height: normal;
+            margin: 0;
+            padding: 4px 12px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+            vertical-align: middle;
+            white-space: nowrap
+        }
+
+        .a-Button:active,
+        .a-Button:focus,
+        .a-Button:hover {
+            text-decoration: none
+        }
+
+        .a-Button.is-disabled,
+        .a-Button:disabled {
+            cursor: default
+        }
+
+        .a-Button::-moz-focus-inner {
+            border: 0;
+            padding: 0
+        }
+
+        .a-Button {
+            border: none;
+            color: #444;
+            border-radius: 2px;
+            -webkit-background-clip: padding;
+            -moz-background-clip: padding;
+            background-clip: padding-box;
+            -webkit-font-smoothing: antialiased
+        }
+
+        .a-Button:hover {
+            z-index: 100
+        }
+
+        .a-Button:focus {
+            outline: 0;
+            z-index: 110
+        }
+
+        .a-Button:active {
+            z-index: 100
+        }
+
+        .a-IRR-button {
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, .15)inset;
+            background-color: #FAFAFA
+        }
+
+        .a-IRR-button:hover {
+            background-color: #FFF;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, .15)inset, 0 1px 2px 0 rgba(0, 0, 0, .1)
+        }
+
+        .a-IRR-button:active,
+        .a-IRR-button:active:focus {
+            background-color: #E0E0E0;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, .15)inset, 0 2px 3px 0 rgba(0, 0, 0, .1)inset;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, .15)inset, 0 2px 3px 0 rgba(0, 0, 0, .1)inset
+        }
+
+        .a-IRR-button.is-active {
+            background-color: #E0E0E0;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, .15)inset, 0 2px 3px 0 rgba(0, 0, 0, .1)inset
+        }
+
+        .a-IRR-button:focus {
+            box-shadow: 0 0 0 1px #4696fc inset, 0 0 0 1px #4696fc, 0 0 2px 2px rgba(70, 150, 252, .5)
+        }
+
+        .a-IRR-toolbar {
+            padding: 8px;
+            border-bottom: 1px solid;
+            display: table;
+            width: 100%;
+            position: relative
+        }
+
+        .a-IRR-buttons,
+        .a-IRR-controls {
+            display: table-cell;
+            vertical-align: top
+        }
+
+        .a-IRR-buttons {
+            text-align: right
+        }
+
+        .a-IRR-search {
+            margin-right: 4px
+        }
+
+        .a-IRR-search-field {
+            display: inline-block;
+            min-height: 30px;
+            height: 30px;
+            padding: 0 8px;
+            font-size: 14px;
+            line-height: 16px;
+            margin: 0
+        }
+
+        .a-IRR-search-field:focus {
+            outline: 0
+        }
+
+        .a-IRR-search-field {
+            border: 1px solid #D0D0D0
+        }
+
+        .a-IRR-search-field:focus {
+            border-color: #4696fc;
+            -webkit-box-shadow: 0 0 0 1px #4696fc inset, 0 0 2px 0 rgba(70, 150, 252, .5);
+            box-shadow: 0 0 0 1px #4696fc inset, 0 0 2px 0 rgba(70, 150, 252, .5)
+        }
+
+        .a-IRR-button--search {
+            vertical-align: top;
+            padding: 8px 12px
+        }
+
+        .a-IRR-table {
+            border-collapse: collapse;
+            table-layout: auto;
+            border-spacing: 0;
+            width: 100%;
+            font-size: inherit
+        }
+
+        .a-IRR-header {
+            background-color: #F0F0F0;
+            vertical-align: bottom;
+            padding: 0;
+            color: #404040;
+            font-weight: 700;
+            -webkit-font-smoothing: antialiased;
+            border-bottom: 1px solid #E0E0E0
+        }
+
+        .a-IRR-header--group {
+            padding: 8px 12px;
+            text-align: left;
+            background-color: #F8F8F8;
+            border-top: 1px solid #E8E8E8
+        }
+
+        .a-IRR-table tr:first-child .a-IRR-header--group {
+            border-top-width: 0
+        }
+
+        .a-IRR-table .a-IRR-header {
+            border-left: 1px solid #E0E0E0
+        }
+
+        .a-IRR-header--pivotColumn,
+        .a-IRR-header--pivotRow {
+            background-color: #F8F8F8;
+            padding: 8px
+        }
+
+        .a-IRR-header--pivotRow {
+            border-right: 1px solid #E0E0E0
+        }
+
+        .a-IRR-table td {
+            padding: 8px 12px;
+            color: #404040;
+            -webkit-transition: background-color .1s;
+            -moz-transition: background-color .1s;
+            -o-transition: background-color .1s;
+            transition: background-color .1s
+        }
+
+        .a-IRR-table tr:nth-child(even) td {
+            background-color: #FAFAFA
+        }
+
+        .a-IRR-table tr:hover td,
+        .a-IRR-table tr:nth-child(even):hover td {
+            background-color: #F4F4F4
+        }
+
+        .a-IRR-table td {
+            border-left: 1px solid #F0F0F0;
+            border-top: 1px solid #F0F0F0
+        }
+
+        .a-IRR-table tr td:last-child {
+            border-right: 1px solid #F0F0F0
+        }
+
+        .a-IRR-table tr td:first-child,
+        .a-IRR-table tr th:first-child {
+            border-left-width: 0
+        }
+
+        .a-IRR-table tr td:last-child,
+        .a-IRR-table tr th:last-child {
+            border-right-width: 0
+        }
+
+        .a-IRR-headerLabel,
+        .a-IRR-headerLink {
+            padding: 12px;
+            display: block;
+            text-align: inherit
+        }
+
+        .a-IRR-content {
+            overflow: auto;
+            clear: both;
+            position: relative
+        }
+
+        .a-IRR {
+            border-color: #E0E0E0;
+            background-color: #FFF
+        }
+
+        .a-IRR-toolbar {
+            border-color: #E0E0E0;
+            background-color: #F0F0F0
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html">
+            IPLT B.P.HASDEU
+            <i class="fa fa-university logo" aria-hidden="true"></i>
+        </a>
+        <i id="menu-btn" class="fas fa-bars" onclick="show()"></i>
+    </header>
+
+    <div class="page-container">
+
+        <aside id="side-menu">
+            <a href="../index.html">Home
+                <i class="fa fa-home" aria-hidden="true"></i>
+            </a>
+            <a href="evenimente.html"> Evenimente
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+            </a>
+            <a href="galerie.html"> Galerie
+                <i class="far fa-images" aria-hidden="true"></i>
+            </a>
+            <a href="manageri.html"> Manageri
+                <i class="fas fa-tasks" aria-hidden="true"></i>
+            </a>
+            <a href="contacte.html"> Contacte
+                <i class="fa fa-phone" aria-hidden="true"></i>
+            </a>
+
+        </aside>
+
+        <main>
+            <h2>Manageri școlari</h2>
+            <div class="a-IRR">
+                <div class="a-IRR-content">
+                    <div class="a-IRR-reportView">
+                        <table summary="" class="a-IRR-table">
+                            <tr>
+                                <th class="a-IRR-header" id="C1700109750454273790"><span
+                                        class="a-IRR-headerLabel">Nume</span></th>
+                                <th class="a-IRR-header" id="C1700109623619273789"><span
+                                        class="a-IRR-headerLabel">Prenume</span></th>
+                                <th class="a-IRR-header" id="C1572138803714478760"><span
+                                        class="a-IRR-headerLabel">Funcția</span></th>
+                                <th class="a-IRR-header" id="C1572139060176478762"><span
+                                        class="a-IRR-headerLabel">Gradul managerial</span></th>
+                                <th class="a-IRR-header" id="C1572139117574478763"><span
+                                        class="a-IRR-headerLabel">Vechimea în muncă (ani)</span></th>
+                                <th class="a-IRR-header" id="C1572139185316478764"><span
+                                        class="a-IRR-headerLabel">Raion/Municipiu/UTA</span></th>
+                                <th class="a-IRR-header" id="C1572139367670478765"><span
+                                        class="a-IRR-headerLabel">Localitate</span></th>
+                                <th class="a-IRR-header" id="C1572139426703478766"><span
+                                        class="a-IRR-headerLabel">Instituția de învățămînt</span></th>
+                                <th class="a-IRR-header" id="C1572139479003478767"><span
+                                        class="a-IRR-headerLabel">Numărul de elevi în instituție</span></th>
+                            </tr>
+                            <tbody id="data1700109874517273791">
+                                <tr>
+                                    <td headers="C1700109750454273790">VĂCARU</td>
+                                    <td headers="C1700109623619273789">MARIA</td>
+                                    <td headers="C1572138803714478760">Director</td>
+                                    <td align="center" headers="C1572139060176478762">Doi</td>
+                                    <td align="center" headers="C1572139117574478763">17</td>
+                                    <td headers="C1572139185316478764">STEFAN VODA</td>
+                                    <td headers="C1572139367670478765">S.OLANESTI</td>
+                                    <td headers="C1572139426703478766">IP Liceul Teoretic,,Bogdan Petriceicu
+                                        Haşdeu&quot;</td>
+                                    <td align="center" headers="C1572139479003478767">453</td>
+                                </tr>
+                                <tr>
+                                    <td headers="C1700109750454273790">DARII</td>
+                                    <td headers="C1700109623619273789">ELENA</td>
+                                    <td headers="C1572138803714478760">Director-adjunct educație</td>
+                                    <td align="center" headers="C1572139060176478762">Fara grad</td>
+                                    <td align="center" headers="C1572139117574478763">2</td>
+                                    <td headers="C1572139185316478764">STEFAN VODA</td>
+                                    <td headers="C1572139367670478765">S.OLANESTI</td>
+                                    <td headers="C1572139426703478766">IP Liceul Teoretic,,Bogdan Petriceicu
+                                        Haşdeu&quot;</td>
+                                    <td align="center" headers="C1572139479003478767">453</td>
+                                </tr>
+                                <tr>
+                                    <td headers="C1700109750454273790">ARPENTI</td>
+                                    <td headers="C1700109623619273789">ANGELA</td>
+                                    <td headers="C1572138803714478760">Director-adjunct instruire</td>
+                                    <td align="center" headers="C1572139060176478762">Fara grad</td>
+                                    <td align="center" headers="C1572139117574478763">2</td>
+                                    <td headers="C1572139185316478764">STEFAN VODA</td>
+                                    <td headers="C1572139367670478765">S.OLANESTI</td>
+                                    <td headers="C1572139426703478766">IP Liceul Teoretic,,Bogdan Petriceicu
+                                        Haşdeu&quot;</td>
+                                    <td align="center" headers="C1572139479003478767">453</td>
+                                </tr>
+                                <tr>
+                                    <td headers="C1700109750454273790">OSTAFII</td>
+                                    <td headers="C1700109623619273789">SILVIA</td>
+                                    <td headers="C1572138803714478760">Director-adjunct instruire</td>
+                                    <td align="center" headers="C1572139060176478762">Fara grad</td>
+                                    <td align="center" headers="C1572139117574478763">7</td>
+                                    <td headers="C1572139185316478764">STEFAN VODA</td>
+                                    <td headers="C1572139367670478765">S.OLANESTI</td>
+                                    <td headers="C1572139426703478766">IP Liceul Teoretic,,Bogdan Petriceicu
+                                        Haşdeu&quot;</td>
+                                    <td align="center" headers="C1572139479003478767">453</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
